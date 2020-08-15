@@ -1,7 +1,7 @@
 # Docker Volumes
 Utilizando docker para lidar com os volumes de armazenamento.
 
-Os comandos a seguir consistem em mostrar os benefícios de se manter dados persistidos externamente ao ciclo de vida dos containers. Aplicando em um cenário onde 3 containers acessam volume compartilhado e rotina de backup definida.
+Os comandos a seguir consistem em mostrar os benefícios de se manter dados persistidos externamente ao ciclo de vida dos containers.
 
 ## Método Host Volume
 Método consiste em mapear um diretório do host com um diretório do container, ou seja, tudo o que for salvo nesse caminho específico do container, será compartilhado também no host.
