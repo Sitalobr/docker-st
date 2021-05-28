@@ -49,3 +49,34 @@ Caso queira parar a execução do container:
 ```shell
 > docker stop bb
 > docker rm bb
+```
+
+## Criando o arquivo docker-compose
+Arquivos docker-compose descrevem como executar aplicações multi-container. Com ele, você usará um arquivo YAML para configurar os serviços de suas aplicações. Após isso, com um único comando, você cria e inicia todos os serviços a partir dessa configuração.
+
+### Exemplo de um docker-compose
+```yaml
+version: '3'
+services:
+    redis:
+        image: redis:alpine
+        ports:
+            - 6379:6379
+    redis-insight:
+        image: redislabs/redisinsight:latest
+        ports:
+            - 8001:8001
+```
+
+Neste arquivo, definimos dois serviços a serem executados como dois containers distintos. O primeiro chamado de `redis`, irá iniciar um container com uma instância do Redis a partir da imagem `redis:alpine` e mapeando a porta padrão 6379 do serviço para a porta de mesmo número no host. Enquanto o segundo serviço irá iniciar um outro container a partir da imagem `redislabs/redisinsight:latest` na porta 8001, subindo uma instância do gerenciador de cache do Redis.
+
+### Executando o docker-compose
+Para iniciar os serviços:
+```shell
+> docker-compose up -d
+```
+
+Para parar os serviços:
+```shell
+> docker-compose down
+```
