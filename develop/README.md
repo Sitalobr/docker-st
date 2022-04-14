@@ -32,6 +32,11 @@ CMD [ "npm", "start" ]
 COPY . .
 ```
 
+### Buildando a imagem a partir do dockerfile
+```shell
+> docker build <path_to_file>
+```
+
 ## Executando sua imagem como um container
 ```shell
 > docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0
